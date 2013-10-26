@@ -1,4 +1,6 @@
 # Django settings for dispatch_service project.
+import os
+import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -8,6 +10,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+CONFIGURE_ROOT = os.path.dirname(__file__)
+DJANGO_PROJECT_ROOT = os.path.realpath(os.path.join(CONFIGURE_ROOT, '..'))
+REPOSITORY_ROOT = os.path.realpath(os.path.join(DJANGO_PROJECT_ROOT, '..'))
 
 DATABASES = {
     'default': {
@@ -156,3 +162,9 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except ImportError as e:
+    sys.stderr.write('settings_local.py not found. Using default settings\n')
+    sys.stderr.write('%s: %s\n\n' % (e.__class__.__name__, e))
