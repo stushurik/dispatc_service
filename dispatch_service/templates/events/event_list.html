@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Events</h1>
+    
+    <ul>
+      {% for event in object_list %}
+        <a href="events/edit/{{event.id}}"><li class="event">{{ event }}</li></a>
+      {% endfor %}
+    </ul>
+
+{% endblock content %}
