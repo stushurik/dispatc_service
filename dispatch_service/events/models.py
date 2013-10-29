@@ -1,3 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import DateTimeField, ForeignKey
 
-# Create your models here.
+from core.models import MinMaxFloat
+
+
+class Event(models.Model):
+
+    created = DateTimeField(auto_now_add=True)
+    author = ForeignKey(User, null=False, related_name='authors_set')
+    executor = ForeignKey(User, null=False, related_name='executors_set')
+    priority = MinMaxFloat(min_value=0.0, max_value=100.0, default=50.0)
