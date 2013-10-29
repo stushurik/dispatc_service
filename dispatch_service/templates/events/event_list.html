@@ -2,11 +2,31 @@
 {% block content %}
 
     <h1>Events</h1>
-    
-    <ul>
-      {% for event in object_list %}
-        <a href="events/edit/{{event.id}}"><li class="event">{{ event }}</li></a>
-      {% endfor %}
-    </ul>
+
+        {% if object_list %}
+            <ul>
+              {% for event in object_list %}
+                <a href="events/edit/{{event.id}}"><li class="event">{{ event }}</li></a>
+              {% endfor %}
+            </ul>
+
+            {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="/events?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="page-current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="/events?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% else %}
+            <p>No events found!!! :(</p>
+        {% endif %}
 
 {% endblock content %}

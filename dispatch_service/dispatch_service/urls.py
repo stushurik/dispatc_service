@@ -2,8 +2,8 @@ from django.conf.urls import patterns, include, url
 
 from core.views import IndexView, LoginFormView, AuthenticationView, LogoutView
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 from events.views import CreateEventView, ListEventView, UpdateEventView
 
 urlpatterns = patterns('',
@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', IndexView.as_view(), name='home'),
     url(r'^login/$', LoginFormView.as_view(), name='login'),

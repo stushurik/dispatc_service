@@ -7,6 +7,11 @@ from core.models import MinMaxFloat
 
 class Event(models.Model):
 
+    class Meta:
+        permissions = (
+            ("view_events", "Can see available events"),
+        )
+
     created = DateTimeField(auto_now_add=True)
     author = ForeignKey(User, null=False, related_name='authors_set')
     executor = ForeignKey(User, null=False, related_name='executors_set')

@@ -114,10 +114,14 @@ ROOT_URLCONF = 'dispatch_service.urls'
 WSGI_APPLICATION = 'dispatch_service.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.realpath(os.path.join(DJANGO_PROJECT_ROOT, 'templates'))
+    os.path.realpath(os.path.join(DJANGO_PROJECT_ROOT, 'templates')),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+)
+
+FIXTURE_DIRS = (
+   os.path.realpath(os.path.join(DJANGO_PROJECT_ROOT, 'fixtures')),
 )
 
 INSTALLED_APPS = (
@@ -133,11 +137,11 @@ INSTALLED_APPS = (
     'core',
     'profiles',
     'decisions',
-    'events'
+    'events',
 
 
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
