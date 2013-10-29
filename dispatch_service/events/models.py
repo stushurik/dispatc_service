@@ -16,3 +16,5 @@ class Event(models.Model):
     author = ForeignKey(User, null=False, related_name='authors_set')
     executor = ForeignKey(User, null=False, related_name='executors_set')
     priority = MinMaxFloat(min_value=0.0, max_value=100.0, default=50.0)
+
+    #def __unicode__(self):

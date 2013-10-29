@@ -38,6 +38,7 @@ class ListEventView(ListView):
     model = Event
     template_name = 'events/event_list.html'
     paginate_by = 10
+    queryset = Event.objects.all().order_by('-priority')
 
 
 class UpdateEventView(UpdateView):
