@@ -6,7 +6,7 @@ from django.db.models import DateTimeField, TextField, ForeignKey
 class Decision(models.Model):
     class Meta:
         permissions = (
-            ("view_events", "Can see available events"),
+            ("view_events", "Can see available decisions"),
         )
 
     created = DateTimeField(auto_now_add=True)

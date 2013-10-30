@@ -10,3 +10,6 @@ class MinMaxFloat(models.FloatField):
         defaults = {'min_value': self.min_value, 'max_value': self.max_value}
         defaults.update(kwargs)
         return super(MinMaxFloat, self).formfield(**defaults)
+
+from south.modelsinspector import add_introspection_rules
+add_introspection_rules([], ["^core\.models\.MinMaxFloat"])
