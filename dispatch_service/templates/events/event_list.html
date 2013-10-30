@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+    {{ perms }}
+
     <h1>Events</h1>
 
         {% if object_list %}
             <ul>
               {% for event in object_list %}
-                <a href="events/edit/{{event.id}}"><li class="event">{{ event.created}} - {{ event.priority}} - {{ event.executor }}</li></a>
+                <a href="events/{{event.id}}"><li class="event">{{ event.created}} - {{ event.priority}} - {{ event.executor }}</li></a>
+                <a href="events/edit/{{event.id}}">edit</a>
               {% endfor %}
             </ul>
 

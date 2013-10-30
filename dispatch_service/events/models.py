@@ -20,4 +20,6 @@ class Event(models.Model):
     #decision = OneToOneField(Decision, null=True)
     description = TextField(null=False, blank=True)
 
-    #def __unicode__(self):
+    def __unicode__(self):
+        return "Event #%s - p%s - date:%s - author:%s" % \
+               (self.id, self.priority, self.created, self.author)

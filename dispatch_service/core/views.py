@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -18,17 +17,6 @@ class IndexView(DetailView):
             return super(IndexView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('login'))
-
-    #def get_object(self, queryset=None):
-    #    obj = super(IndexView, self).get_object(queryset)
-    #    #obj.executors_set.all()
-    #    messages.add_message(
-    #        self.request,
-    #        messages.INFO,
-    #        'You have %s events' % obj.executors_set.filter(decision=None).count()
-    #    )
-    #    return obj
-
 
 
 class LoginFormView(TemplateView):
