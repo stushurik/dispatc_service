@@ -1,0 +1,695 @@
+[
+{
+    "pk": 1, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_permission", 
+        "name": "Can add permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_permission", 
+        "name": "Can change permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_permission", 
+        "name": "Can delete permission", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_group", 
+        "name": "Can add group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_group", 
+        "name": "Can change group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 6, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_group", 
+        "name": "Can delete group", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 7, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_user", 
+        "name": "Can add user", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_user", 
+        "name": "Can change user", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 9, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_user", 
+        "name": "Can delete user", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 10, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_contenttype", 
+        "name": "Can add content type", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 11, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_contenttype", 
+        "name": "Can change content type", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 12, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_contenttype", 
+        "name": "Can delete content type", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 13, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_session", 
+        "name": "Can add session", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_session", 
+        "name": "Can change session", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 15, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_session", 
+        "name": "Can delete session", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 16, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_site", 
+        "name": "Can add site", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 17, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_site", 
+        "name": "Can change site", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 18, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_site", 
+        "name": "Can delete site", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 19, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_migrationhistory", 
+        "name": "Can add migration history", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 20, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_migrationhistory", 
+        "name": "Can change migration history", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 21, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_migrationhistory", 
+        "name": "Can delete migration history", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 22, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_decision", 
+        "name": "Can add decision", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 23, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_decision", 
+        "name": "Can change decision", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 24, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_decision", 
+        "name": "Can delete decision", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 25, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_event", 
+        "name": "Can add event", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 26, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_event", 
+        "name": "Can change event", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 27, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_event", 
+        "name": "Can delete event", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_logentry", 
+        "name": "Can add log entry", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_logentry", 
+        "name": "Can change log entry", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_logentry", 
+        "name": "Can delete log entry", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "view_events", 
+        "name": "Can see available events", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "view_decisions", 
+        "name": "Can see available decisions", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.group", 
+    "fields": {
+        "name": "admins", 
+        "permissions": [
+            28, 
+            29, 
+            30, 
+            4, 
+            5, 
+            6, 
+            1, 
+            2, 
+            3, 
+            7, 
+            8, 
+            9, 
+            10, 
+            11, 
+            12, 
+            22, 
+            23, 
+            24, 
+            25, 
+            26, 
+            27, 
+            13, 
+            14, 
+            15, 
+            16, 
+            17, 
+            18, 
+            19, 
+            20, 
+            21
+        ]
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.group", 
+    "fields": {
+        "name": "dispatchers", 
+        "permissions": [
+            23, 
+            24, 
+            32, 
+            26, 
+            27, 
+            31
+        ]
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.group", 
+    "fields": {
+        "name": "watchers", 
+        "permissions": [
+            22, 
+            25, 
+            31
+        ]
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.group", 
+    "fields": {
+        "name": "guests", 
+        "permissions": [
+            32, 
+            31
+        ]
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 2
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 3
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 4
+    }
+},
+{
+    "pk": 5, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 5
+    }
+},
+{
+    "pk": 6, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 6
+    }
+},
+{
+    "pk": 7, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 7
+    }
+},
+{
+    "pk": 8, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 8
+    }
+},
+{
+    "pk": 9, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 9
+    }
+},
+{
+    "pk": 10, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 10
+    }
+},
+{
+    "pk": 11, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 11
+    }
+},
+{
+    "pk": 12, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 12
+    }
+},
+{
+    "pk": 13, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 13
+    }
+},
+{
+    "pk": 14, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 14
+    }
+},
+{
+    "pk": 15, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 15
+    }
+},
+{
+    "pk": 16, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 16
+    }
+},
+{
+    "pk": 17, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 17
+    }
+},
+{
+    "pk": 18, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 18
+    }
+},
+{
+    "pk": 19, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 19
+    }
+},
+{
+    "pk": 20, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 20
+    }
+},
+{
+    "pk": 21, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 21
+    }
+},
+{
+    "pk": 22, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 22
+    }
+},
+{
+    "pk": 23, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 23
+    }
+},
+{
+    "pk": 24, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 24
+    }
+},
+{
+    "pk": 25, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 25
+    }
+},
+{
+    "pk": 26, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 26
+    }
+},
+{
+    "pk": 27, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 27
+    }
+},
+{
+    "pk": 28, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 28
+    }
+},
+{
+    "pk": 29, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 29
+    }
+},
+{
+    "pk": 30, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 1, 
+        "permission": 30
+    }
+},
+{
+    "pk": 41, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 4, 
+        "permission": 32
+    }
+},
+{
+    "pk": 42, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 4, 
+        "permission": 31
+    }
+},
+{
+    "pk": 43, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 3, 
+        "permission": 25
+    }
+},
+{
+    "pk": 44, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 3, 
+        "permission": 22
+    }
+},
+{
+    "pk": 45, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 3, 
+        "permission": 31
+    }
+},
+{
+    "pk": 46, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 32
+    }
+},
+{
+    "pk": 47, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 23
+    }
+},
+{
+    "pk": 48, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 24
+    }
+},
+{
+    "pk": 49, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 26
+    }
+},
+{
+    "pk": 50, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 27
+    }
+},
+{
+    "pk": 51, 
+    "model": "auth.group_permissions", 
+    "fields": {
+        "group": 2, 
+        "permission": 31
+    }
+}
+]

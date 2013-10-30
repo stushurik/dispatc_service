@@ -8,20 +8,19 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Event'
-        db.create_table(u'events_event', (
+        # Adding model 'Decision'
+        db.create_table(u'decisions_decision', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('author', self.gf('django.db.models.fields.related.ForeignKey')(related_name='authors_set', to=orm['auth.User'])),
-            ('executor', self.gf('django.db.models.fields.related.ForeignKey')(related_name='executors_set', to=orm['auth.User'])),
-            ('priority', self.gf('core.models.MinMaxFloat')(default=50.0)),
+            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('author', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
         ))
-        db.send_create_signal(u'events', ['Event'])
+        db.send_create_signal(u'decisions', ['Decision'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Event'
-        db.delete_table(u'events_event')
+        # Deleting model 'Decision'
+        db.delete_table(u'decisions_decision')
 
 
     models = {
@@ -67,15 +66,7 @@ class Migration(SchemaMigration):
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.TextField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
-        },
-        u'events.event': {
-            'Meta': {'object_name': 'Event'},
-            'author': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'authors_set'", 'to': u"orm['auth.User']"}),
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'executor': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'executors_set'", 'to': u"orm['auth.User']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'priority': ('core.models.MinMaxFloat', [], {'default': '50.0'})
         }
     }
 
-    complete_apps = ['events']
+    complete_apps = ['decisions']
