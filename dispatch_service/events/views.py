@@ -20,8 +20,6 @@ class CreateEventView(CreateView):
             messages.add_message(request, messages.INFO, 'You can`t add event')
             return HttpResponseRedirect(reverse('home'))
 
-
-
     def get_success_url(self):
         return reverse('events-list')
 
@@ -39,6 +37,14 @@ class ListEventView(ListView):
     template_name = 'events/event_list.html'
     paginate_by = 10
     queryset = Event.objects.all().order_by('-priority')
+
+
+class ListUserEventView(ListEventView):
+
+    def get_queryset(self):
+        query = super(ListEventView, self).get_queryset()
+        user = self.request.user
+        return query.filter(executor=user)
 
 
 class UpdateEventView(UpdateView):

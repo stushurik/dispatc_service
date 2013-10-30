@@ -4,7 +4,7 @@ from core.views import IndexView, LoginFormView, AuthenticationView, LogoutView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-from events.views import CreateEventView, ListEventView, UpdateEventView
+from events.views import CreateEventView, ListEventView, UpdateEventView, ListUserEventView
 
 urlpatterns = patterns('',
     # Examples:
@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
 
     url(r'^events$', ListEventView.as_view(), name='events-list'),
+    url(r'^my-events$', ListUserEventView.as_view(), name='my-events-list'),
     url(r'^events/add$', CreateEventView.as_view(), name='events-new'),
     url(r'^events/edit/(?P<pk>\d+)/$', UpdateEventView.as_view(), name='events-edit'),
 )

@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import DateTimeField, ForeignKey, OneToOneField, TextField
+from django.db.models import DateTimeField, ForeignKey, TextField
 
 from core.models import MinMaxFloat
-from decisions.models import Decision
 
 
 class Event(models.Model):
@@ -18,7 +17,7 @@ class Event(models.Model):
     executor = ForeignKey(User, null=False, related_name='executors_set')
     priority = MinMaxFloat(min_value=0.0, max_value=100.0, default=50.0)
 
-    decision = OneToOneField(Decision, null=True)
+    #decision = OneToOneField(Decision, null=True)
     description = TextField(null=False, blank=True)
 
     #def __unicode__(self):
