@@ -1,15 +1,19 @@
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView, View, DetailView
 
 
-class IndexView(TemplateView):
+class IndexView(DetailView):
 
+    model = User
     template_name = 'core/index.html'
+    context_object_name = 'auth_user'
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
+            self.kwargs['pk'] = request.user.id
             return super(IndexView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('login'))

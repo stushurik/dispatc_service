@@ -3,8 +3,10 @@ from django.conf.urls import patterns, include, url
 from core.views import IndexView, LoginFormView, AuthenticationView, LogoutView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from decisions.views import CreateDecisionView
+
 admin.autodiscover()
-from events.views import CreateEventView, ListEventView, UpdateEventView
+from events.views import CreateEventView, ListEventView, UpdateEventView, ListUserEventView, EventDetailView
 
 urlpatterns = patterns('',
     # Examples:
@@ -23,6 +25,10 @@ urlpatterns = patterns('',
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
 
     url(r'^events$', ListEventView.as_view(), name='events-list'),
+    url(r'^my-events$', ListUserEventView.as_view(), name='my-events-list'),
     url(r'^events/add$', CreateEventView.as_view(), name='events-new'),
     url(r'^events/edit/(?P<pk>\d+)/$', UpdateEventView.as_view(), name='events-edit'),
+    url(r'^events/(?P<pk>\d+)/$', EventDetailView.as_view(), name='events-detail'),
+
+    url(r'^events/(?P<pk>\d+)/resolve$', CreateDecisionView.as_view(), name='decisions-new'),
 )

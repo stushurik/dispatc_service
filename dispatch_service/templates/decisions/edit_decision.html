@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if event.id %}
-    <h1>Edit Event</h1>
+    {% if decision.id %}
+    <h1>Edit Decision</h1>
     {% else %}
-    <h1>Add Event</h1>
+    <h1>Add Decision</h1>
     {% endif %}
     
     <form action="{{ action }}" method="POST">

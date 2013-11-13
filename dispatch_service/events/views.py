@@ -1,7 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DetailView
 from django.contrib import messages
+from events.forms import EventForm
 
 from events.models import Event
 
@@ -10,6 +11,7 @@ class CreateEventView(CreateView):
 
     model = Event
     template_name = 'events/edit_event.html'
+    form_class = EventForm
 
     def get(self, request, *args, **kwargs):
         user = request.user
@@ -20,7 +22,10 @@ class CreateEventView(CreateView):
             messages.add_message(request, messages.INFO, 'You can`t add event')
             return HttpResponseRedirect(reverse('home'))
 
-
+    def get_initial(self):
+        init = super(CreateEventView, self).get_initial()
+        init['author'] = self.request.user.id
+        return init
 
     def get_success_url(self):
         return reverse('events-list')
@@ -41,10 +46,26 @@ class ListEventView(ListView):
     queryset = Event.objects.all().order_by('-priority')
 
 
+class ListUserEventView(ListEventView):
+
+    def get_queryset(self):
+        query = super(ListEventView, self).get_queryset()
+        user = self.request.user
+        return query.filter(executor=user, decision=None)
+
+
+class EventDetailView(DetailView):
+
+    model = Event
+    template_name = 'events/event.html'
+    context_object_name = 'event'
+
+
 class UpdateEventView(UpdateView):
 
     model = Event
     template_name = 'events/edit_event.html'
+    form_class = EventForm
 
     def get(self, request, *args, **kwargs):
         user = request.user

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Event #{{ event.id }}</h1>
+
+{{ event.created }}<br>
+{{ event.author }}<br>
+{{ event.executor }}<br>
+{{ event.priority }}<br>
+{{ event.description }}<br>
+
+    {% if not event.decision %}
+        <a href="/events/{{ event.id }}/resolve">resolve</a>
+    {% else %}
+        <strong>resolved</strong>
+    {% endif %}
+
+{% endblock content %}
