@@ -3,3 +3,4 @@ MySQL-python
 South==0.8.2
 Pillow
 pysftp
+django-registration

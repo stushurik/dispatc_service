@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^login/$', LoginFormView.as_view(), name='login'),
     url(r'^login/confirm/$', AuthenticationView.as_view(), name='confirm'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^accounts/', include('registration.urls')),
 
     url(r'^events$', ListEventView.as_view(), name='events-list'),
     url(r'^my-events$', ListUserEventView.as_view(), name='my-events-list'),
