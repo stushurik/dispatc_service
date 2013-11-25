@@ -3,16 +3,18 @@ import pysftp
 
 
 class SFTP():
-    def __init__(self):
 
+    def __init__(self, host=None, username=None, password=None, port=22):
         self.valid = True
 
-        if not (
-            hasattr(self, 'host') or
-            hasattr(self, 'port') or
-            hasattr(self, 'username') or
-            hasattr(self, 'password')
-        ):
+        if host and username and password:
+            setattr(self, 'host', host)
+            setattr(self, 'username', username)
+            setattr(self, 'password', password)
+            setattr(self, 'port', port)
+
+        else:
+
             dir_name = os.path.dirname(__file__)
             project_dir = os.path.realpath(os.path.join(dir_name, '..'))
 

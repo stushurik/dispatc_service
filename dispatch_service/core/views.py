@@ -1,8 +1,12 @@
+from tempfile import TemporaryFile, NamedTemporaryFile
+from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, View, DetailView
+from dispatch_service import settings
+from utils.sftp import SFTP
 
 
 class IndexView(DetailView):
@@ -21,6 +25,44 @@ class IndexView(DetailView):
 
 class LoginFormView(TemplateView):
     template_name = 'core/login.html'
+
+
+class FileFormView(TemplateView):
+    template_name = 'core/fileform.html'
+
+
+class FileLoadView(View):
+
+    def post(self, request, *args, **kwargs):
+
+        print True, request.FILES, request.POST
+
+        f = request.FILES['file']
+        with NamedTemporaryFile(prefix='__', suffix='test') as destination:
+            for chunk in f.chunks():
+                destination.write(chunk)
+            with SFTP(
+                settings.REMOTE_HOST,
+                request.POST['login'],
+                request.POST['password'],
+                settings.PORT
+            ) as sftp:
+
+                try:
+                    sftp.connect()
+                    sftp.put_file_to_remote_host(destination.name)
+                    messages.add_message(
+                        request,
+                        messages.INFO,
+                        'File was loaded successfully')
+                except Exception, e:
+                    messages.add_message(
+                        request,
+                        messages.INFO,
+                        'Error during loading a file: %s' % e.message
+                    )
+
+        return HttpResponseRedirect(reverse('home'))
 
 
 class LogoutView(View):

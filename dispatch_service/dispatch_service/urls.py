@@ -1,9 +1,11 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from core.views import IndexView, LoginFormView, AuthenticationView, LogoutView
+from core.views import IndexView, LoginFormView, AuthenticationView, LogoutView, FileFormView, FileLoadView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from decisions.views import CreateDecisionView
+from dispatch_service import settings
 
 admin.autodiscover()
 from events.views import CreateEventView, ListEventView, UpdateEventView, ListUserEventView, EventDetailView
@@ -32,4 +34,15 @@ urlpatterns = patterns('',
     url(r'^events/(?P<pk>\d+)/$', EventDetailView.as_view(), name='events-detail'),
 
     url(r'^events/(?P<pk>\d+)/resolve$', CreateDecisionView.as_view(), name='decisions-new'),
+
+    url(r'^file-form$', FileFormView.as_view(), name='fileform'),
+    url(r'^file$', FileLoadView.as_view(), name='file_load'),
 )
+
+
+urlpatterns = patterns('',
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'', include('django.contrib.staticfiles.urls')),
+) + urlpatterns
+urlpatterns += staticfiles_urlpatterns()
