@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ info }}
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset4 well">
+                <legend>Пожалуйсто зайдите под своим акаунтом</legend>
+                <form method="POST" action="{% url 'confirm' %}" accept-charset="UTF-8">
+                    {% csrf_token %}
+                   <br> <input type="text" id="username" class="span4" name="username" placeholder="Username"> </br>
+                   <br> <input type="password" id="password" class="span4" name="pass" placeholder="Password"> </br>
+                    <button type="submit" name="submit" class="btn btn-info btn-block">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

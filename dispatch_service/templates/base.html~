@@ -8,7 +8,7 @@
         {% block title %}No title{% endblock %}
     </title>
 <style>
-  	body { background: url({% static "image/fon1.jpeg" %}) no-repeat ;
+  	body { background: url(image/fon1.jpeg) no-repeat ;
 	background-size: 100%;}
 	</style>
 

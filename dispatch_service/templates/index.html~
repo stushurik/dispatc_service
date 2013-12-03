@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+background: url(/images/fon.jpeg) repeat-y;
+}
+</style>
+</head>
+<body>
+<a href="http://Google.com" > <button> Login </button> </a>
+<p><img src="image/fon1.jpeg" alt="Пример" width="150" height="90"></p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {{ auth_user }}
+
+    <hr>
+    <a href="events/add">add event</a>
+    <a href="events">all events</a>
+
+{% endblock content %}

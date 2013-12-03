@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if decision.id %}
+    <h1>Edit Decision</h1>
+    {% else %}
+    <h1>Add Decision</h1>
+    {% endif %}
+    
+    <form action="{{ action }}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+
+    <a href="/">cancel</a>
+
+{% endblock content %}
