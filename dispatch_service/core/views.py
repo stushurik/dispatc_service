@@ -1,4 +1,4 @@
-from tempfile import TemporaryFile, NamedTemporaryFile
+from tempfile import NamedTemporaryFile
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User
@@ -50,7 +50,7 @@ class FileLoadView(View):
                 for chunk in f.chunks():
                     destination.write(chunk)
                 with SFTP(
-                    settings.REMOTE_HOST,
+                    settings.HOST,
                     request.POST['login'],
                     request.POST['password'],
                     settings.PORT

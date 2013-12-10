@@ -19,32 +19,18 @@ class SFTP():
             project_dir = os.path.realpath(os.path.join(dir_name, '..'))
 
             with open(project_dir+'/conf.ini', 'r') as conf_file:
-                values = []
-                for line in conf_file.readlines():
-                    if str(line).startswith('#'):
-                        continue
-                    value = str(line).split('=')
+                values = self.get_params(conf_file.readlines())
+                for value in values:
+                    setattr(self, value[0], value[1].strip())
 
-                    if len(value) < 2:
-                        continue
-                    else:
-                        param = value[0].strip()
-                        setattr(self, param, value[1].strip())
-                        values.append(param)
-
-            print values, type(values)
             for opt in ('host', 'port', 'username', 'password'):
-                print opt
-                if opt not in values:
-                    print 'its a trap!'
+                if opt not in [i[0] for i in values]:
                     self.valid = False
 
     def __enter__(self):
         return self
 
     def connect(self):
-        print self.valid
-
         if self.valid:
             connection = pysftp.Connection(
                 host=self.host,
@@ -66,6 +52,46 @@ class SFTP():
     def __exit__(self, type, value, traceback):
         if hasattr(self, 'connection'):
             self.connection.close()
+
+    @staticmethod
+    def validate_conf(path=None, data=None):
+        is_valid = True
+        if path:
+            with open(path, 'r') as conf_file:
+                content = conf_file.read()
+        else:
+            if data:
+                content = data
+            else:
+                is_valid = False
+
+        if(not 'host' in content and
+           not 'port' in content
+           ):
+            is_valid = False
+        else:
+            lines = str(content).split('\n')
+            for line in lines:
+                if str(line).count('=') > 1:
+                    is_valid = False
+        return is_valid
+
+    @staticmethod
+    def get_params(data):
+        values = []
+        for line in data:
+            if str(line).startswith('#'):
+                continue
+            value = str(line).split('=')
+            for i, v in enumerate(value):
+                v = v.strip()
+                value[i] = v
+
+            if len(value) < 2:
+                continue
+            else:
+                values.append(value)
+        return values
 
 if __name__ == "__main__":
     with SFTP() as sftp:

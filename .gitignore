@@ -2,4 +2,6 @@
 *.pot
 *.pyc
 .idea/
+static_c/
 local_settings.py
+conf.ini
