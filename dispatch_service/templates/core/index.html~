@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-
 {% block content %}
 
     {{ auth_user }}
 
-    <hr>
-    <a href="events/add">add event</a>
-    <a href="events">all events</a>
-
+  <div id="index"> <br> <hr>
+	<div id="index">
+    <a href="events/add"><button>add event</button></a>
+    <a href="events"><button>all events</button></a>
+    <a href="file-form"><button>load file to the server</button></a>
+    </br></div></div>
 {% endblock content %}

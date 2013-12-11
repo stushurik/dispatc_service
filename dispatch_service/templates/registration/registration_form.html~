@@ -1,4 +1,4 @@
-<div id="activ">{% extends "base.html" %}
+{% extends "base.html" %}
 {% block content %}
 <h1>Регистрация</h1>
 <form method="post" action="">
@@ -13,5 +13,5 @@
 {% endfor %}
 </dl>
 <input type="submit" value="Зарегистрироваться" / class="clearfix">
-</form></div>
+</form>
 {% endblock %}

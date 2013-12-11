@@ -1,0 +1,27 @@
+#base {
+background: #ffe4e1;
+padding: 1px;
+padding-left: 5px;
+float: left;
+border: 2px solid purple;
+}
+body {
+background-image: url('image/bomba.jpeg');
+background-repeat: repeat;
+}
+#addevent{
+width: 400px;
+background: #ffffff;
+margin: 5px;
+border: 1px dotted red;
+padding:7px;
+}
+#baseevent{
+background: #fff0f5;
+padding: 1px;
+padding-left: 5px;
+}
+#index{
+width: 600px;
+background: #ffe4e1;
+}

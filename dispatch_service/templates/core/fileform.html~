@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="file"><h1>Load file</h1>
+<div><h1>Load file</h1>
 <form enctype="multipart/form-data" method="post" action="{% url 'file_load' %}">
     {% csrf_token %}
     <input id='login' name='login' type="text" placeholder="your remote server login">

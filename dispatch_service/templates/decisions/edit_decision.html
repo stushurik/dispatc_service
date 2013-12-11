@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
     {% if decision.id %}
-    <h1>Edit Decision</h1>
+    <div id="des"><h1>Edit Decision</h1></div>
     {% else %}
-    <h1>Add Decision</h1>
+    <div><h1>Add Decision</h1></div>
     {% endif %}
     
     <form action="{{ action }}" method="POST">
@@ -12,6 +12,6 @@
         <input type="submit">
     </form>
 
-    <a href="/">cancel</a>
+    <a href="/"><button>cancel</button></a>
 
 {% endblock content %}

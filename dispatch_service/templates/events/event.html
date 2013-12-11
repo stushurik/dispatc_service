@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<div id="event">{% extends "base.html" %}
 
 {% block content %}
 <h1>Event #{{ event.id }}</h1>
@@ -10,9 +10,9 @@
 {{ event.description }}<br>
 
     {% if not event.decision %}
-        <a href="/events/{{ event.id }}/resolve">resolve</a>
+        <a href="/events/{{ event.id }}/resolve"><button>resolve</button></a>
     {% else %}
-        <strong>resolved</strong>
+        <strong>resolved</strong></div>
     {% endif %}
 
 {% endblock content %}

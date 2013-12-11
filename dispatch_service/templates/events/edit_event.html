@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+<div id="editevent">{% extends "base.html" %}
 {% block content %}
     {% if event.id %}
-    <h1>Edit Event</h1>
+    <h1><button>Edit Event</button></h1>
     {% else %}
-    <h1>Add Event</h1>
+    <h1><button>Add Event</button></h1> 
     {% endif %}
     
     <form action="{{ action }}" method="POST">
@@ -12,6 +12,6 @@
         <input type="submit">
     </form>
 
-    <a href="/">cancel</a>
+    <a href="/"><button>cancel</button></a>
 
-{% endblock content %}
+{% endblock content %}</div>

@@ -10,7 +10,7 @@
 {{ event.description }}<br>
 
     {% if not event.decision %}
-        <a href="/events/{{ event.id }}/resolve">resolve</a>
+        <a href="/events/{{ event.id }}/resolve"><button>resolve</button></a>
     {% else %}
         <strong>resolved</strong>
     {% endif %}
