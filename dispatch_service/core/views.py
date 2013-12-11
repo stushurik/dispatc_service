@@ -1,4 +1,4 @@
-from tempfile import TemporaryFile, NamedTemporaryFile
+from tempfile import NamedTemporaryFile
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User
@@ -37,30 +37,38 @@ class FileLoadView(View):
 
         print True, request.FILES, request.POST
 
-        f = request.FILES['file']
-        with NamedTemporaryFile(prefix='__', suffix='test') as destination:
-            for chunk in f.chunks():
-                destination.write(chunk)
-            with SFTP(
-                settings.REMOTE_HOST,
-                request.POST['login'],
-                request.POST['password'],
-                settings.PORT
-            ) as sftp:
+        f = request.FILES.get('file')
+        if not f:
+            messages.add_message(
+                request,
+                messages.INFO,
+                'You do not choose a file'
+            )
+            return HttpResponseRedirect(reverse('fileform'))
+        else:
+            with NamedTemporaryFile(prefix='__', suffix='test') as destination:
+                for chunk in f.chunks():
+                    destination.write(chunk)
+                with SFTP(
+                    settings.HOST,
+                    request.POST['login'],
+                    request.POST['password'],
+                    settings.PORT
+                ) as sftp:
 
-                try:
-                    sftp.connect()
-                    sftp.put_file_to_remote_host(destination.name)
-                    messages.add_message(
-                        request,
-                        messages.INFO,
-                        'File was loaded successfully')
-                except Exception, e:
-                    messages.add_message(
-                        request,
-                        messages.INFO,
-                        'Error during loading a file: %s' % e.message
-                    )
+                    try:
+                        sftp.connect()
+                        sftp.put_file_to_remote_host(destination.name)
+                        messages.add_message(
+                            request,
+                            messages.INFO,
+                            'File was loaded successfully')
+                    except Exception, e:
+                        messages.add_message(
+                            request,
+                            messages.INFO,
+                            'Error during loading a file: %s' % e.message
+                        )
 
         return HttpResponseRedirect(reverse('home'))
 

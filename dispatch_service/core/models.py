@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.db import models
 
 
@@ -13,3 +14,7 @@ class MinMaxFloat(models.FloatField):
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ["^core\.models\.MinMaxFloat"])
+
+
+class Settings(models.Model):
+    site = models.OneToOneField(Site)
